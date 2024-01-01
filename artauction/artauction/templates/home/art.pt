@@ -1,0 +1,57 @@
+<div metal:use-macro="load: ../shared/layout.pt">
+    <div metal:fill-slot="content">
+        <br>
+        <br>
+        <br>
+        <h2 class="fw-normal text-center"> Place a bid now.</h2>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-6">
+                    <div class="card art-content">
+                        <img src=${art.tag} class="card-img-top" alt="..." width="600" height="400">
+                        <div class="card-body">
+                            <h4 class="card-title">${art.title}</h4>
+                            <p class="text-muted">${art.artist} - ${art.year}</p>
+                            <small class="card-text">${art.description}</small>
+                            <br>
+                            <br>
+                            <h4 class="card-title text-center text-success"><strong>Highest bid: ${"${:,.02f}".format(highest_bid)}</strong></h4>
+                        </div>
+                        <div class="card-footer">
+                            <br>
+                            <p class="text-center text-success">${"Valued at ${:,.02f}, place a bid now.".format(art.price)}</p>
+                            <div class="text-center text-danger" tal:condition="error">
+                                <!--${"{} -${:,.02f}".format(error, abs(bid_offer))}-->
+                                ${"{} ${:,.02f}".format(error, bid_offer)}
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form action="" method="POST">
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <span class="input-group-text">0.00</span>
+                                                <input type="text" class="form-control" placeholder="CAD Dollar in 0.00 format" name="bid_offer" value="">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="reset" class="btn btn-danger">Reset</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>

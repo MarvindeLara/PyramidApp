@@ -1,0 +1,12 @@
+plaster_pastedeploy
+pyramid
+pyramid_chameleon
+pyramid_debugtoolbar
+waitress
+sqlalchemy
+alembic
+
+[testing]
+WebTest
+pytest
+pytest-cov
